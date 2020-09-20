@@ -50,11 +50,11 @@ public:
 				<< row.symbol << " ";
 			for ( std::string guidingSymbol : row.guidingSets ) {
 				if ( !(*row.guidingSets.begin() == guidingSymbol) ) {
-					std::cout << ",";
+					stream << ",";
 				}
-				std::cout << guidingSymbol;
+				stream << guidingSymbol;
 			}
-			std::cout << " " << convertBoolToInt( row.shift ) << " "
+			stream << " " << convertBoolToInt( row.shift ) << " "
 				<< row.next << " "
 				<< convertBoolToInt( row.stack ) << " "
 				<< convertBoolToInt( row.error ) << " "
