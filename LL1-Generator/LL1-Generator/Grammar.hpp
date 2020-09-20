@@ -56,6 +56,7 @@ public:
 			}
 		}
 		m_axiom = m_rules[0].left;
+		removeLeftRecursions();
 	};
 
 	void write( std::ostream& out ) const {
@@ -74,7 +75,6 @@ public:
 	};
 
 	GrammarTable toTableLL1() {
-		removeLeftRecursions();
 		std::map < std::string, std::vector<GuidingSets> > guidingSets = getGuidingSets();
 		std::map<std::string, size_t> positionsNonTerminal;
 		size_t index = 1;
@@ -151,8 +151,8 @@ public:
 	};
 private:
 	std::vector<Rule> m_rules;
-	const std::string EMPTY_SYMBOL = "-";
-	const std::string END_SYMBOL = "|end|";
+	const std::string EMPTY_SYMBOL = "{empty}";
+	const std::string END_SYMBOL = "{end}";
 	GrammarSymbol m_axiom;
 
 	bool isTerminal( std::string value ) {
@@ -251,7 +251,7 @@ private:
 					std::vector<GrammarSymbol> newFirst = getFirst( symbol.second );
 					for ( GrammarSymbol firstSymbol : newFirst ) {
 						if ( firstSymbol.value == EMPTY_SYMBOL ) {
-							if ( followAdded.find( firstSymbol.value ) == firstAdded.end() ) {
+							if ( followAdded.find( firstSymbol.value ) == followAdded.end() ) {
 								queueFollow.push( { symbol.first, firstSymbol } );
 								followAdded.insert( firstSymbol.value );
 							}
@@ -321,13 +321,15 @@ private:
 				for ( size_t i = 0; i < rightRule.size(); i++ ) {
 					if ( rightRule[i] == symbol ) {
 						if ( i + 1 >= rightRule.size() ) {
-							follows.push_back( { true, rule.left } );
-						}
-						else if ( symbol == m_axiom ) {
-							GrammarSymbol newSymbol;
-							newSymbol.value = END_SYMBOL;
-							newSymbol.isTerminal = true;
-							follows.push_back( { false, newSymbol } );
+							if ( symbol == m_axiom ) {
+								GrammarSymbol newSymbol;
+								newSymbol.value = END_SYMBOL;
+								newSymbol.isTerminal = true;
+								follows.push_back( { true, newSymbol } );
+							}
+							else {
+								follows.push_back( { true, rule.left } );
+							}
 						}
 						else {
 							follows.push_back( { false, rightRule[i + 1] } );
