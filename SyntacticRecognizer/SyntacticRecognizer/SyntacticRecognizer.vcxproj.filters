@@ -15,29 +15,64 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Lexer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="StateReader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Grammar.hpp">
+    <ClInclude Include="Keywords.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Lexer.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="StateReader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Token.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SyntaxCheck.hpp">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="GrammarTable.hpp">
+    <ClInclude Include="SyntaxTable.hpp">
       <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="TokenType.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="temp.txt">
+    <None Include="LexerMachine.csv">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="in.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
-    <Text Include="test1.txt">
+    <Text Include="SyntaxTable.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
-    <Text Include="test2.txt">
+    <Text Include="Source.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
-    <Text Include="out.txt">
+    <Text Include="SyntaxTable1.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="Source1.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
   </ItemGroup>

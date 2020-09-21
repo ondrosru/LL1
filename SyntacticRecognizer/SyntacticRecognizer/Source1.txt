@@ -1,0 +1,9 @@
+PROG Shik
+VAR a, b
+begin
+    st st
+    st st st st
+END
+
+
+

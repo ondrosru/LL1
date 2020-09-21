@@ -50,7 +50,7 @@ public:
 				<< row.symbol << " ";
 			for ( std::string guidingSymbol : row.guidingSets ) {
 				if ( !(*row.guidingSets.begin() == guidingSymbol) ) {
-					stream << ",";
+					stream << "|";
 				}
 				stream << guidingSymbol;
 			}

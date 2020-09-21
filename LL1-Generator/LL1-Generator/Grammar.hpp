@@ -117,7 +117,7 @@ public:
 						}
 						else {
 							for ( std::string value : guidingSets[rule.left.value][j] ) {
-								tempGuidingSets.insert(value);
+								tempGuidingSets.insert( value );
 							}
 						}
 						shift = true;
@@ -140,7 +140,7 @@ public:
 						endState = true;
 						shift = false;
 					}
-					if ( nextPosition == "-" ) {
+					if ( rule.rightRules[j][i].value == EMPTY_SYMBOL ) {
 						shift = false;
 					}
 					table.addRow( rule.rightRules[j][i].value, tempGuidingSets, shift, nextPosition, stack, true, endState );
@@ -152,7 +152,7 @@ public:
 private:
 	std::vector<Rule> m_rules;
 	const std::string EMPTY_SYMBOL = "{empty}";
-	const std::string END_SYMBOL = "{end}";
+	const std::string END_SYMBOL = "[end]";
 	GrammarSymbol m_axiom;
 
 	bool isTerminal( std::string value ) {

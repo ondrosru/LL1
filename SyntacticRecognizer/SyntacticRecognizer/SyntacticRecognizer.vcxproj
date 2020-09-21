@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f768d020-20a0-4489-a659-2b98aed2a7fd}</ProjectGuid>
-    <RootNamespace>LL1Generator</RootNamespace>
+    <ProjectGuid>{108cad37-a998-4399-9229-bc737ab2e716}</ProjectGuid>
+    <RootNamespace>SyntacticRecognizer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,17 +139,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateReader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Grammar.hpp" />
-    <ClInclude Include="GrammarTable.hpp" />
+    <ClInclude Include="Keywords.h" />
+    <ClInclude Include="Lexer.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateReader.h" />
+    <ClInclude Include="SyntaxCheck.hpp" />
+    <ClInclude Include="SyntaxTable.hpp" />
+    <ClInclude Include="Token.h" />
+    <ClInclude Include="TokenType.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="out.txt" />
-    <Text Include="temp.txt" />
-    <Text Include="test1.txt" />
-    <Text Include="test2.txt" />
+    <None Include="LexerMachine.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="in.txt" />
+    <Text Include="Source.txt" />
+    <Text Include="Source1.txt" />
+    <Text Include="SyntaxTable.txt" />
+    <Text Include="SyntaxTable1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
